@@ -7,8 +7,8 @@
     <title>Vue Ninja</title>
 
     <!-- Bootstrap -->
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -22,7 +22,16 @@
   <body>
 
     <div id="app" class="">
-      <h1>{{titulo}}</h1>
+      <h1 v-if="status">{{titulo}}</h1>
+
+      <div>
+        <ul class="list-group" v-if="usuario.id==1">
+          <li class="list-group-item">Id: {{usuario.id}}</li>
+          <li class="list-group-item">Nome: {{usuario.nome}}</li>
+          <li class="list-group-item">Profissão: {{usuario.profissao}}</li>
+        </ul>
+        <div class="alert alert-warning" v-else> Nenhum Usuário </div>
+      </div>
 
     </div>
 
@@ -31,12 +40,18 @@
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.js"></script>
-    
+
     <script type="text/javascript">
       var app = new Vue({
           el: "#app",
           data: {
-            titulo: "Aula vue js ninja"
+            status: true,
+            titulo: "Aula vue js ninja",
+            usuario: {
+              id: 2,
+              nome: "He-man",
+              profissao: "Guardião"
+            }
           }
       })
     </script>
