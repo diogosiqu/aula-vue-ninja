@@ -25,19 +25,14 @@
       <h1 v-if="status">{{titulo}}</h1>
 
       <div>
-        <ul class="list-group" v-if="usuario.id==1">
+        <ul class="list-group" v-if="usuario.id == 1">
           <li class="list-group-item">Id: {{usuario.id}}</li>
           <li class="list-group-item">Nome: {{usuario.nome}}</li>
           <li class="list-group-item">Profissão: {{usuario.profissao}}</li>
         </ul>
         <div class="alert alert-warning" v-else> Nenhum Usuário </div>
       </div>
-
     </div>
-
-
-
-
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.js"></script>
 
