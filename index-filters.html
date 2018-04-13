@@ -24,6 +24,10 @@
     <div id="app" class="">
       <h1>{{titulo}}</h1>
 
+      <ul>
+        <li v-for="usuario in usuarios" :key="usuario.key"> {{ usuario.nome | truncate('10') }} </li>
+      </ul>
+
       <button class="btn btn-primary" @click="enviar()">Enviar</button>
 
     </div>
@@ -35,18 +39,29 @@
           el: "#app",
           data: {
             titulo: "Aula vue js ninja",
+            usuarios: [
+              { nome: 'Jorge' },
+              { nome: 'Tião Macalé' },
+              { nome: 'Galvão Bueno' }
+            ]
+          },
+          filters: {
+            toUpperCase(str){
+              return str.toUpperCase();
+            },
+
+            truncate(str, length){
+              var output = str;
+              if (output.length > length) {
+                output = str.substring(0,length) + ' ...';
+              }
+              return output;
+            }
           },
           methods: {
-            //es6
             enviar(){
               alert('enviando!');
             },
-
-            //es2015
-            // enviar: function(){
-            //   alert('enviando!');
-            // },
-
           }
       })
     </script>
